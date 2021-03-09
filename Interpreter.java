@@ -6,12 +6,10 @@ import java.util.Scanner;
 public class Interpreter {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		gui.start();
-	}
-	
-	public static ArrayList<Process> parse() {
-		File inputFile = new File(gui.fileName);
+		System.out.print("Please enter simulation file: ");
+		Scanner user = new Scanner(System.in);
+		String fileName = user.next();
+		File inputFile = new File(fileName);
 		Scanner in;
 		ArrayList<Process> process = new ArrayList<Process>();
 		try {
@@ -42,7 +40,6 @@ public class Interpreter {
 		for(Process p: process) {
 			System.out.println(p.toString());
 		}
-		return process;
 	}
 
 	public boolean isInt(String s) {
