@@ -6,6 +6,11 @@ public class Process {
 	Integer priority;
 	ArrayList<Integer> cpuBurstTime;
 	ArrayList<Integer> ioBurstTime;
+	Integer turnaroundTime;
+	Integer waitingTime;
+	Integer completionTime;
+	Integer burstTime = 0;
+	Integer burstCount = 0;
 	
 	public Process() {
 		
@@ -17,6 +22,7 @@ public class Process {
 		this.priority = priority;
 		cpuBurstTime = new ArrayList<Integer>();
 		ioBurstTime = new ArrayList<Integer>();
+		waitingTime = 0;
 	}
 	
 	public void addBursts(int cpuBurstTime, int ioBurstTime) {
@@ -35,5 +41,17 @@ public class Process {
 		}
 		result = result + ' ' + cpuBurstTime.get(cpuBurstTime.size() - 1);
 		return result;
+	}
+	
+	public int getArrivalTime() {
+		return arrivalTime;
+	}
+	
+	public int getPriority() {
+		return priority;
+	}
+	
+	public int getJobLength() {
+		return cpuBurstTime.get(burstCount);
 	}
 }
